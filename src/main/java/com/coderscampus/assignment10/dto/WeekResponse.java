@@ -7,24 +7,24 @@ import java.util.List;
 public class WeekResponse {
 
     @JsonProperty("meals")
-    private List<Meal> meals;
+    private List<List<Meal>> meals;
 
     @JsonProperty("nutrients")
-    private Nutrients nutrients;
+    private List<Nutrients> nutrients;
 
-    public List<Meal> getMeals() {
+    public List<List<Meal>> getMeals() {
         return meals;
     }
 
-    public void setMeals(List<Meal> meals) {
+    public void setMeals(List<List<Meal>> meals) {
         this.meals = meals;
     }
 
-    public Nutrients getNutrients() {
+    public List<Nutrients> getNutrients() {
         return nutrients;
     }
 
-    public void setNutrients(Nutrients nutrients) {
+    public void setNutrients(List<Nutrients> nutrients) {
         this.nutrients = nutrients;
     }
 }
