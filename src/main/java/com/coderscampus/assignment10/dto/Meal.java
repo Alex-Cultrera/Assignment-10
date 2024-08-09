@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-public class Meals {
+public class Meal {
 
     @JsonProperty("id")
     private Integer id;
