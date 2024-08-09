@@ -10,7 +10,7 @@ public class WeekResponse {
     private List<Meal> meals;
 
     @JsonProperty("nutrients")
-    private List<Nutrient> nutrients;
+    private Nutrients nutrients;
 
     public List<Meal> getMeals() {
         return meals;
@@ -20,11 +20,11 @@ public class WeekResponse {
         this.meals = meals;
     }
 
-    public List<Nutrient> getNutrients() {
+    public Nutrients getNutrients() {
         return nutrients;
     }
 
-    public void setNutrients(List<Nutrient> nutrients) {
+    public void setNutrients(Nutrients nutrients) {
         this.nutrients = nutrients;
     }
 }

@@ -2,7 +2,7 @@ package com.coderscampus.assignment10.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Nutrient {
+public class Nutrients {
 
     @JsonProperty("calories")
     private Double calories;

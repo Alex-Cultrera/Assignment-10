@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MealPlanController {
 
-    String numCalories = "2500";
-    String diet = "paleo";
-    String exclusions = "soy";
-
     @Autowired
     private MealPlanService mealPlanService;
 
@@ -25,6 +21,9 @@ public class MealPlanController {
             @RequestParam(required = false) String diet,
             @RequestParam(required = false) String exclusions
     ) {
+        numCalories = "2500";
+        diet = "paleo";
+        exclusions = "soy";
         WeekResponse weekMealPlanner = mealPlanService.fetchWeekMealPlanFromSpoonacularAPI(
                                                                         numCalories,
                                                                         diet,
@@ -39,6 +38,9 @@ public class MealPlanController {
             @RequestParam(required = false) String diet,
             @RequestParam(required = false) String exclusions
     ) {
+        numCalories = "3000";
+        diet = "vegetarian";
+        exclusions = "dairy";
         DayResponse dayMealPlanner = mealPlanService.fetchDayMealPlanFromSpoonacularAPI(
                 numCalories,
                 diet,
