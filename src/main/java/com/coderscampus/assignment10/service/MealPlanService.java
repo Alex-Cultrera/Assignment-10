@@ -1,10 +1,11 @@
 package com.coderscampus.assignment10.service;
 
+import com.coderscampus.assignment10.config.AppConfiguration;
 import com.coderscampus.assignment10.dto.DayResponse;
 import com.coderscampus.assignment10.dto.WeekResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -14,11 +15,14 @@ import java.net.URI;
 @Service
 public class MealPlanService {
 
-    public WeekResponse fetchWeekMealPlanFromSpoonacularAPI(BigDecimal numCalories, String diet, String exclusions) {
+    @Autowired
+    private AppConfiguration appConfig;
+
+    public WeekResponse getOneWeekMealPlanFromSpoonacularAPI(BigDecimal numCalories, String diet, String exclusions) {
 
         RestTemplate restTemplate1 = new RestTemplate();
 
-        URI weekMealPlannerUri = UriComponentsBuilder.fromHttpUrl("https://api.spoonacular.com/mealplanner/generate")
+        URI weekMealPlannerUri = UriComponentsBuilder.fromHttpUrl(appConfig.getApiUrlBase()+appConfig.getApiUrlMealPlanEndpoint())
                 .queryParam("timeFrame", "week")
                 .queryParam("targetCalories", numCalories)
                 .queryParam("diet", diet)
@@ -35,7 +39,7 @@ public class MealPlanService {
 
         RestTemplate restTemplate2 = new RestTemplate();
 
-        URI dayMealPlannerUri = UriComponentsBuilder.fromHttpUrl("https://api.spoonacular.com/mealplanner/generate")
+        URI dayMealPlannerUri = UriComponentsBuilder.fromHttpUrl(appConfig.getApiUrlBase()+appConfig.getApiUrlMealPlanEndpoint())
                 .queryParam("timeFrame", "day")
                 .queryParam("targetCalories", numCalories)
                 .queryParam("diet", diet)

@@ -39,7 +39,7 @@ public class MealPlanController {
         }
         mealPlan.setDiet(diet != null ? diet : "gluten free");
         mealPlan.setExclude(exclusions != null ? exclusions : "dairy");
-        WeekResponse weekMealPlanner = mealPlanService.fetchWeekMealPlanFromSpoonacularAPI(mealPlan.getTargetCalories(), mealPlan.getDiet(), mealPlan.getExclude());
+        WeekResponse weekMealPlanner = mealPlanService.getOneWeekMealPlanFromSpoonacularAPI(mealPlan.getTargetCalories(), mealPlan.getDiet(), mealPlan.getExclude());
         return ResponseEntity.ok(weekMealPlanner);
     }
 

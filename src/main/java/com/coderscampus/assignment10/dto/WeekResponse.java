@@ -6,25 +6,15 @@ import java.util.List;
 
 public class WeekResponse {
 
-    @JsonProperty("meals")
-    private List<List<Meal>> meals;
+    @JsonProperty("week")
+    private Week week;
 
-    @JsonProperty("nutrients")
-    private List<Nutrients> nutrients;
-
-    public List<List<Meal>> getMeals() {
-        return meals;
+    public Week getWeek() {
+        return week;
     }
 
-    public void setMeals(List<List<Meal>> meals) {
-        this.meals = meals;
+    public void setWeek(Week week) {
+        this.week = week;
     }
 
-    public List<Nutrients> getNutrients() {
-        return nutrients;
-    }
-
-    public void setNutrients(List<Nutrients> nutrients) {
-        this.nutrients = nutrients;
-    }
 }
